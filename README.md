@@ -1,8 +1,10 @@
 # DistributedTransaction
 Logic- the supplier service would be invoked to add a suplier http://localhost:9102/supplierservice/add
 This will  invoke save operation corresponding to a transaction and will call the validation service to perform the validation.
+You need to have Rabbit MQ to test this out, check the application.properties for Rabbit MQ server details , change it if required
 If the supplier is valid the validation service will send a Commit  event on the same transaction ID else will send Rollback event.
-http://localhost:9102/supplierservice/add
+
+All the events will be send to Transaction Que listened by the transaction Manager  to manage a transaction across distributed microservices
 
 JSON for testing Successful Commit Case
 {
