@@ -29,10 +29,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,27 +44,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-        <groupId>com.ibm.db2.jcc</groupId>
-        <artifactId>licences</artifactId>
-        <version>1.0</version> <!-- Adjust this properly -->
-        <scope>system</scope>
-        <systemPath>${basedir}/lib/db2jcc_license_cu.jar</systemPath>
-    </dependency>
-    <dependency>
-        <groupId>com.ibm.db2.jcc</groupId>
-        <artifactId>db2jcc4</artifactId>
-        <version>1.0</version> <!-- Adjust this properly -->
-        <scope>system</scope>
-        <systemPath>${basedir}/lib/db2jcc4.jar</systemPath>
-    </dependency>
-    <dependency>
-        <groupId>com.ibm.db2.jcc</groupId>
-        <artifactId>db2jcc_javax</artifactId>
-        <version>1.0</version> <!-- Adjust this properly -->
-        <scope>system</scope>
-        <systemPath>${basedir}/lib/db2java.zip</systemPath>
-    </dependency>
 	</dependencies>
 
 	<build>

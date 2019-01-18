@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.config.ApplicationConfigReader;
 import com.ibm.dto.SupplierInfo;
+import com.ibm.dto.TransactionDto;
 import com.ibm.rabbitmq.MessageSender;
 import com.ibm.utils.ApplicationConstant;
 
@@ -50,20 +51,37 @@ public class ValidationController {
 
 
 	@RequestMapping(path = "/validate", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String sendMessage(@RequestBody SupplierInfo user) {
+	public String sendMessage(@RequestBody SupplierInfo info) {
 
 		log.info("<<<<<<<<<<<<<<<<<< in order service");
-		String exchange = getApplicationConfig().getApp2Exchange();
-		String routingKey = getApplicationConfig().getApp2RoutingKey();
+		String exchange = getApplicationConfig().getApp1Exchange();
+		String routingKey = getApplicationConfig().getApp1RoutingKey();
 
+		TransactionDto dto = null;
 		/* Sending to Message Queue */
 		try {
-			messageSender.sendMessage(rabbitTemplate, exchange, routingKey, user);
-			return ApplicationConstant.IN_QUEUE + " " + user.getEventId();
+			dto = new TransactionDto();
+			
+			if("US".equalsIgnoreCase(info.getCountry())){
+				
+				if("NY".equalsIgnoreCase(info.getRegion())){
+					
+					info.setEventId(ApplicationConstant.COMMIT);
+				    
+				} else {
+					info.setEventId(ApplicationConstant.ROLLBACK);
+				}
+			}
+			dto.setEventId(info.getEventId());
+			dto.setTransactionId(info.getTransactionId());
+			dto.setData(info);
+    		
+			messageSender.sendMessage(rabbitTemplate, exchange, routingKey, dto);
+			return ApplicationConstant.IN_QUEUE + " " + info.getEventId();
 			
 		} catch (Exception ex) {
 			log.error("Exception occurred while sending message to the queue. Exception= {}", ex);
-			return ApplicationConstant.MESSAGE_QUEUE_SEND_ERROR+ " " + user.getEventId();
+			return ApplicationConstant.MESSAGE_QUEUE_SEND_ERROR+ " " + info.getEventId();
 		}
 
 	}

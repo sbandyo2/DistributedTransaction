@@ -7,70 +7,61 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public final class SupplierInfo extends BaseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-    
-	
-	@JsonProperty("suppPartnerId")
-    private Integer suppPartnerId;
-	
+
+	@JsonProperty("supp_Partner_Id")
+	private Integer supp_Partner_Id;
+
 	@JsonProperty("vendorID")
-    private String vendorID;
-	
-	@JsonProperty("localtionID")
-	private String localtionID;
+	private String vendorID;
+
+	@JsonProperty("locationID")
+	private String locationID;
 
 	@JsonProperty("name")
 	private String name;
-	
+
 	@JsonProperty("city")
 	private String city;
-	
+
 	@JsonProperty("street")
 	private String street;
-	
+
 	@JsonProperty("postalcode")
 	private String postalcode;
-	
+
 	@JsonProperty("region")
 	private String region;
-	
+
 	@JsonProperty("country")
 	private String country;
-	
+
 	@JsonProperty("phone")
 	private String phone;
-	
+
 	@JsonProperty("fax")
 	private String fax;
-	
+
 	@JsonProperty("emailAddress")
 	private String emailAddress;
-	
-    // Default constructor is needed to de-serialize JSON
-    public SupplierInfo() {
-    }
-	
-    
 
-
-	/**
-	 * @return the suppPartnerId
-	 */
-	public Integer getSuppPartnerId() {
-		return suppPartnerId;
+	// Default constructor is needed to de-serialize JSON
+	public SupplierInfo() {
 	}
 
-
-
-
 	/**
-	 * @param suppPartnerId the suppPartnerId to set
+	 * @return the supp_Partner_Id
 	 */
-	public void setSuppPartnerId(Integer suppPartnerId) {
-		this.suppPartnerId = suppPartnerId;
+	public Integer getSupp_Partner_Id() {
+		return supp_Partner_Id;
 	}
 
-
-
+	/**
+	 * @param supp_Partner_Id
+	 *            the supp_Partner_Id to set
+	 */
+	public void setSupp_Partner_Id(Integer supp_Partner_Id) {
+		this.supp_Partner_Id = supp_Partner_Id;
+	}
 
 	/**
 	 * @return the vendorID
@@ -79,38 +70,28 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return vendorID;
 	}
 
-
-
-
 	/**
-	 * @param vendorID the vendorID to set
+	 * @param vendorID
+	 *            the vendorID to set
 	 */
 	public void setVendorID(String vendorID) {
 		this.vendorID = vendorID;
 	}
 
-
-
-
 	/**
-	 * @return the localtionID
+	 * @return the locationID
 	 */
-	public String getLocaltionID() {
-		return localtionID;
+	public String getLocationID() {
+		return locationID;
 	}
 
-
-
-
 	/**
-	 * @param localtionID the localtionID to set
+	 * @param locationID
+	 *            the locationID to set
 	 */
-	public void setLocaltionID(String localtionID) {
-		this.localtionID = localtionID;
+	public void setLocationID(String locationID) {
+		this.locationID = locationID;
 	}
-
-
-
 
 	/**
 	 * @return the name
@@ -119,18 +100,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return name;
 	}
 
-
-
-
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-
 
 	/**
 	 * @return the city
@@ -139,18 +115,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return city;
 	}
 
-
-
-
 	/**
-	 * @param city the city to set
+	 * @param city
+	 *            the city to set
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-
-
 
 	/**
 	 * @return the street
@@ -159,18 +130,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return street;
 	}
 
-
-
-
 	/**
-	 * @param street the street to set
+	 * @param street
+	 *            the street to set
 	 */
 	public void setStreet(String street) {
 		this.street = street;
 	}
-
-
-
 
 	/**
 	 * @return the postalcode
@@ -179,18 +145,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return postalcode;
 	}
 
-
-
-
 	/**
-	 * @param postalcode the postalcode to set
+	 * @param postalcode
+	 *            the postalcode to set
 	 */
 	public void setPostalcode(String postalcode) {
 		this.postalcode = postalcode;
 	}
-
-
-
 
 	/**
 	 * @return the region
@@ -199,18 +160,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return region;
 	}
 
-
-
-
 	/**
-	 * @param region the region to set
+	 * @param region
+	 *            the region to set
 	 */
 	public void setRegion(String region) {
 		this.region = region;
 	}
-
-
-
 
 	/**
 	 * @return the country
@@ -219,18 +175,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return country;
 	}
 
-
-
-
 	/**
-	 * @param country the country to set
+	 * @param country
+	 *            the country to set
 	 */
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-
-
 
 	/**
 	 * @return the phone
@@ -239,18 +190,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return phone;
 	}
 
-
-
-
 	/**
-	 * @param phone the phone to set
+	 * @param phone
+	 *            the phone to set
 	 */
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-
-
 
 	/**
 	 * @return the fax
@@ -259,18 +205,13 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return fax;
 	}
 
-
-
-
 	/**
-	 * @param fax the fax to set
+	 * @param fax
+	 *            the fax to set
 	 */
 	public void setFax(String fax) {
 		this.fax = fax;
 	}
-
-
-
 
 	/**
 	 * @return the emailAddress
@@ -279,21 +220,18 @@ public final class SupplierInfo extends BaseDto implements Serializable {
 		return emailAddress;
 	}
 
-
-
-
 	/**
-	 * @param emailAddress the emailAddress to set
+	 * @param emailAddress
+	 *            the emailAddress to set
 	 */
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
 
-
-
-
 	@Override
 	public String toString() {
-		return "CrawlSupplierData [eventId=" + eventId + ",suppPartnerId=" + suppPartnerId + ", vendorID=" + vendorID + ", localtionID=" + localtionID + "]";
+		return "CrawlSupplierData [suppPartnerId=" + supp_Partner_Id
+				+ ", vendorID=" + vendorID + ", localtionID=" + locationID
+				+ "]";
 	}
 }

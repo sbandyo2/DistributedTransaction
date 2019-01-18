@@ -16,9 +16,9 @@ public class ApplicationConstant {
 	/* Constants */
 	public static final int MESSAGE_RETRY_DELAY=5000;
 	
-	public static final String VALID_EVENT =  "EVENT_VALID";
-	public static final String VALIDATE_SUPP_EVENT=  "EVENT_ADD_SUPPLIER";
-	public static final String INVALID_EVENT =  "EVENT_INVALID";
+	public static final String COMMIT =  "COMMIT";
+	public static final String SAVE =  "SAVE";
+	public static final String ROLLBACK =  "ROLLBACK";
 	
 	
 }
