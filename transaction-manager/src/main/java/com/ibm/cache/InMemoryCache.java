@@ -10,7 +10,7 @@ public class InMemoryCache implements Cache {
 	private final ConcurrentHashMap<String, SoftReference<CacheObject>> cache = new ConcurrentHashMap<>();
 	
 	/**
-	 * 
+	 * Memory Cache
 	 */
 	public InMemoryCache() {
         Thread cleanerThread = new Thread(() -> {
