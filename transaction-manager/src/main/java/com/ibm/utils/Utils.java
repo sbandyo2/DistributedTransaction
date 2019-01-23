@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,19 +12,12 @@ import org.json.JSONObject;
 
 public class Utils {
 	
-	/**
-	 * @param str
-	 * @return
-	 */
-	public static boolean isNullOrEmpty(String str) {
-		if (str == null) {
-			return true;
-		} else if (str.trim().equals("")) {
-			return true;
-		} 
-		return false;
-	}
 	
+	/**
+	 * @param object
+	 * @return
+	 * @throws JSONException
+	 */
 	public static Map<String, Object> toMap(JSONObject object) throws JSONException {
 	    Map<String, Object> map = new HashMap<String, Object>();
 
@@ -77,71 +69,6 @@ public class Utils {
 		map = toMap(jsonObject);
 		return (map.containsKey(key))?jsonObject.get(key):"";
 	}
-	
-	/**
-	 * @param obj
-	 * @return
-	 */
-	public static Object[] generateInsertQuery(Object obj){
-		String keys = null;
-		String values = null;
-		Object [] objArray = null;
-		Map<String, Object>  map = null;
-		map = Utils.toMap(obj.toString());
-		String key = null;
-		Object value = null;
-		
-		Set<String> set = null;
-		Iterator<String> it = null;
-		objArray = new Object[2];
-		
-		set = map.keySet();
-		it = set.iterator();
-		while(it.hasNext()){
-			key = it.next();
-			//set the columns
-			if(!"eventId".equalsIgnoreCase(key) &&
-					!"transactionId".equalsIgnoreCase(key)){
-				
-				if(!Utils.isNullOrEmpty(keys)){
-					keys = keys + key+ ", ";
-				}else {
-					keys = key + ", ";
-							
-				}
-			}
-			
-			//set the values
-			value =  map.get(key) ;
-			if(!"eventId".equalsIgnoreCase(key) &&
-					!"transactionId".equalsIgnoreCase(key)){
-				
-				if(!Utils.isNullOrEmpty(values)) {
-					if(value instanceof Integer){
-						values = values +value + ", ";	
-					}else {
-						values = values +"'"+value + "', ";
-					}
-					
-				} else {
-					if(value instanceof Integer){
-						values = value + ", ";	
-					}else {
-						values = "'"+value + "', ";
-					}
-				}	
-			}
-			
-		}
-		
-		keys = keys.substring(0,keys.lastIndexOf(","));
-		values = values.substring(0,values.lastIndexOf(","));
-		objArray [0] = keys;
-		objArray[1] = values;
-		
-		return objArray;
-	}
-
 
 	/**
 	 * @param dataObject
@@ -181,6 +108,19 @@ public class Utils {
 		
 		return map;
 		
+	}
+	
+	/**
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNullOrEmpty(String str) {
+		if (str == null) {
+			return true;
+		} else if (str.trim().equals("")) {
+			return true;
+		} 
+		return false;
 	}
 	
 

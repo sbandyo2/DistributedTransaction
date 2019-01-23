@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
 import com.ibm.config.ApplicationConfigReader;
-import com.ibm.dbTransaction.DBOperations;
 import com.ibm.dto.TransactionDto;
+import com.ibm.transaction.TransactionManager;
 import com.ibm.utils.ApplicationConstant;
 
 /**
@@ -29,7 +29,7 @@ public class MessageListener {
     ApplicationConfigReader applicationConfigReader;
 
     @Autowired
-    private DBOperations dbOperations = null;
+    private TransactionManager transactionManager = null;
     
     /**
      * Message listener for app1
@@ -46,7 +46,7 @@ public class MessageListener {
     		String transactionID = String.valueOf(reqObj.getTransactionId());
     		
     		if(ApplicationConstant.COMMIT.equalsIgnoreCase(state)){
-    			dbOperations.insertSupplierInfo(reqObj.getData());
+    			//dbOperations.insertSupplierInfo(reqObj.getData());
     			
     			log.info("<< commiting for transaction.. "+ transactionID);
     		}else if(ApplicationConstant.SAVE.equalsIgnoreCase(state)) {

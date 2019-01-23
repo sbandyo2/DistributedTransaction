@@ -23,7 +23,7 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
 import com.ibm.config.ApplicationConfigReader;
 @EnableRabbit
 @SpringBootApplication
-@ComponentScan(basePackages = { "com.ibm.rabbitmq","com.ibm.controller","com.ibm.dbTransaction"} )
+@ComponentScan(basePackages = { "com.ibm.rabbitmq","com.ibm.controller","com.ibm.transaction"} )
 public class TransactionManagerService extends SpringBootServletInitializer implements RabbitListenerConfigurer  {
 	
 	@Autowired
